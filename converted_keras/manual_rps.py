@@ -17,7 +17,7 @@ def get_user_choice():
     
     return user_choice
 
-def get_winner(computer_choice,user_choice):
+def get_winner(computer_choice, user_choice):
 
     result = ["win", "lose", "draw"]
     if computer_choice == user_choice:
@@ -44,3 +44,9 @@ def get_winner(computer_choice,user_choice):
         else:
             print("Scissors beats paper. User wins.")
             return result[0]
+
+def play():
+    while True:
+        computer_choice = get_computer_choice()
+        user_choice = get_user_choice()
+        get_winner(computer_choice, user_choice)

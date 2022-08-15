@@ -8,4 +8,6 @@ pass
 
 def get_user_choice(user_choice, self)
 
+    self.user_choice = input("Show Rock, Paper or Scissors: ")
+
 pass

@@ -2,7 +2,7 @@ import random
 
 def get_computer_choice(comp_choice, self)
 
-    comp_choice = random.choice(["Rock", "Paper", "Scissors"])
+    self.comp_choice = random.choice(["Rock", "Paper", "Scissors"])
 
 pass
 

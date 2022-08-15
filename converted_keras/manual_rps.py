@@ -1,10 +1,10 @@
 import random
 
 def get_computer_choice():
+    # we are using the convention that 1, 2 and 3 are rock, paper and scissors respectively
+    computer_choice = random.choice(["1", "2", "3"])
 
-    comp_choice = random.choice(["rock", "paper", "scissors"])
-
-    return comp_choice
+    return computer_choice
 
 def get_user_choice():
     
@@ -16,3 +16,17 @@ def get_user_choice():
             break
     
     return user_choice
+
+def get_winner(computer_choice,user_choice):
+
+    result = ["win", "lose", "draw"]
+    if computer_choice == user_choice:
+        print("Draw")
+        return result[2]
+    elif user_choice == "1":
+        if computer_choice == "2":
+            print("Paper beats rock. Computer wins.")
+            return result[1]
+        else:
+            print("Rock beats scissors. User wins.")
+            return result[0]

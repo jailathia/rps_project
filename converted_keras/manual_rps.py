@@ -30,3 +30,17 @@ def get_winner(computer_choice,user_choice):
         else:
             print("Rock beats scissors. User wins.")
             return result[0]
+    elif user_choice == "2":
+        if computer_choice == "3":
+            print("Scissors beats paper. Computer wins.")
+            return result[1]
+        else:
+            print("Paper beats rock. User wins.")
+            return result[0]
+    elif user_choice == "3":
+        if computer_choice == "1":
+            print("Rock beats scissors. Computer wins.")
+            return result[1]
+        else:
+            print("Scissors beats paper. User wins.")
+            return result[0]

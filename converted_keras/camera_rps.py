@@ -41,9 +41,6 @@ class RPS:
         if np.argmax(confidence_percentage) == 3:
             self.user_choice = options[3]
             print("No input detected. Please try again.")
-        elif max(confidence_percentage) < 0.75:
-            self.user_choice = options[3]
-            print("No input detected. Please try again.")
         else:
             self.user_choice = options[np.argmax(confidence_percentage)]
             print("You showed " +  self.user_choice)

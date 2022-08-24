@@ -12,6 +12,23 @@ class RPS:
         self.user_choice = ""
         self.computer_choice = ""
 
+    def get_computer_choice():
+        # we are using the convention that 1, 2 and 3 are rock, paper and scissors respectively
+        computer_choice = random.choice(["1", "2", "3"])
+
+        return computer_choice
+
+    def get_user_choice():
+    
+        while True:
+            user_choice = input("Choose from: \n 1. rock \n 2. paper \n 3. scissors \n Enter the corresponding number: ")
+            if user_choice not in ["1", "2", "3"]:
+            print("Please choose 1, 2 or 3")
+            else:
+                break
+    
+        return user_choice
+
     
     def get_prediction(self):
         model = load_model('keras_model.h5')
@@ -26,6 +43,8 @@ class RPS:
             data[0] = normalized_image
             prediction = model.predict(data)
             cv2.imshow('frame', frame)
+            self.user_choice = options[np.argmax(prediction[0])]
+            print("You showed " +  self.user_choice)
             # Press q to close the window
             print(prediction)
             if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -34,15 +53,8 @@ class RPS:
         # After the loop release the cap object
         cap.release()
         # Destroy all the windows
-        cv2.destroyAllWindows()
-
-        confidence_percentage = prediction[0]
-        print(confidence_percentage)
-        if np.argmax(confidence_percentage) == 3:
-            self.user_choice = options[3]
-            print("No input detected. Please try again.")
-        else:
-            self.user_choice = options[np.argmax(confidence_percentage)]
-            print("You showed " +  self.user_choice)
+        cv2.destroyAllWindows() 
+        
+        
         return self.user_choice
 

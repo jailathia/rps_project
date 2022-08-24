@@ -14,21 +14,8 @@ class RPS:
         self.computer_choice = ""
 
     def get_computer_choice(self):
-        # we are using the convention that 1, 2 and 3 are rock, paper and scissors respectively
-        self.computer_choice = random.choice(options)
-
+        self.computer_choice = random.choice(options.remove('nothing'))
         return self.computer_choice
-
-    def get_user_choice(self):
-    
-        while True:
-            self.user_choice = input("Choose from: \n 1. rock \n 2. paper \n 3. scissors \n Enter the corresponding number: ")
-            if self.user_choice not in ["1", "2", "3"]:
-                print("Please choose 1, 2 or 3")
-            else:
-                break
-    
-        return user_choice
 
     
     def get_prediction(self):

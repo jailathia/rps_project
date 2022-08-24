@@ -2,10 +2,15 @@ import cv2
 from keras.models import load_model
 import numpy as np
 
+options = ['rock', 'paper', 'scissors', 'nothing']
+
 class RPS:
 
     def __init__(self):
         self.user_wins = 0
+        self.computer_wins = 0
+        self.user_choice = ""
+        self.computer_choice = ""
 
     
     def get_prediction(self):
@@ -30,4 +35,17 @@ class RPS:
         cap.release()
         # Destroy all the windows
         cv2.destroyAllWindows()
+
+        confidence_percentage = prediction[0]
+        print(confidence_percentage)
+        if np.argmax(confidence_percentage) == 3:
+            self.user_choice = options[3]
+            print("No input detected. Please try again.")
+        elif max(confidence_percentage) < 0.75:
+            self.user_choice = options[3]
+            print("No input detected. Please try again.")
+        else:
+            self.user_choice = options[np.argmax(confidence_percentage)]
+            print("You showed " +  self.user_choice)
+        return self.user_choice
 

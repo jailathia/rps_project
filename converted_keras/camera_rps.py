@@ -63,10 +63,10 @@ class RPS:
             print("You both chose " + self.user_choice + ". This is a draw")
             return "draw"
         elif ((options.index(self.computer_choice))-(options.index(self.user_choice))) % 3 == 1:
-            print("The computer chose " + self.computer_choice + " and you chose " + self.user_choice ". You lose")
+            print("You lose")
             return "loss"
         else:
-            print("The computer chose " + self.computer_choice + " and you chose " + self.user_choice ". You win")
+            print("You win")
             return "win"
 
     def play_once(self):

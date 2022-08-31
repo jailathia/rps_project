@@ -62,9 +62,16 @@ class RPS:
 
     def play_once(self)
         while self.user_choice not in options.remove('nothing'):
-            self.user_choice = self.get_prediction
-            return self.user_choice
-        
+            self.get_prediction()
+        self.get_computer_choice()
+
+        result = self.get_winner()
+        if result == "win":
+            self.user_wins += 1
+        elif result == "loss":
+            self.computer_wins += 1
+        else:
+            pass
 
 def play():
     game = RPS()

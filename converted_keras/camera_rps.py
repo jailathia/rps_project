@@ -2,8 +2,16 @@ import cv2
 from keras.models import load_model
 import numpy as np
 import random
+import time
 
 options = ['rock', 'paper', 'scissors', 'nothing']
+
+def countdown_timer(time_left: int):
+    while time_left > 0:
+        print("picture will be taken in " + str(time_left) + " seconds")
+        time.sleep(1)
+        time_left -= 1
+    print("Fire in the hole!")
 
 class RPS:
 
@@ -22,7 +30,7 @@ class RPS:
         model = load_model('keras_model.h5')
         cap = cv2.VideoCapture(0)
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-
+        countdown_timer(1)
         while True: 
             ret, frame = cap.read()
             resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)

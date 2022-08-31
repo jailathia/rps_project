@@ -62,7 +62,9 @@ class RPS:
 
     def play_once(self)
         while self.user_choice not in options.remove('nothing'):
-            self.user_choice = get_prediction(self)
+            self.user_choice = self.get_prediction
+            return self.user_choice
+        
 
 def play():
     game = RPS()

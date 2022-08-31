@@ -26,12 +26,13 @@ class RPS:
         return self.computer_choice
 
     
-    def get_prediction(self):
+    def get_prediction(self, countdown_time = 5):
         model = load_model('keras_model.h5')
         cap = cv2.VideoCapture(0)
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
         countdown_timer(1)
-        while True: 
+        start_time = time.time()
+        while time.time() < (start_time + countdown_time): 
             ret, frame = cap.read()
             resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
             image_np = np.array(resized_frame)

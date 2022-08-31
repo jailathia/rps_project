@@ -31,8 +31,11 @@ class RPS:
             data[0] = normalized_image
             prediction = model.predict(data)
             cv2.imshow('frame', frame)
+            
+            # here the option with the highest percentage is chosen
             self.user_choice = options[np.argmax(prediction[0])]
             print("You showed " +  self.user_choice)
+            
             # Press q to close the window
             print(prediction)
             if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -46,3 +49,13 @@ class RPS:
         
         return self.user_choice
 
+    def get_winner(self):
+        if self.computer_choice == self.user_choice:
+            print("You both chose " + self.user_choice + ". This is a draw")
+            return "draw"
+        elif ((options.index(self.computer_choice))-(options.index(self.user_choice))) % 3 == 1:
+            print("The computer chose " + self.computer_choice + " and you chose " + self.user_choice ". You lose")
+            return "loss"
+        else:
+            print("The computer chose " + self.computer_choice + " and you chose " + self.user_choice ". You win")
+            return "win"

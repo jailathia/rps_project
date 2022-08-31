@@ -59,3 +59,13 @@ class RPS:
         else:
             print("The computer chose " + self.computer_choice + " and you chose " + self.user_choice ". You win")
             return "win"
+
+    def play_once(self)
+        while self.user_choice not in options.remove('nothing'):
+            self.user_choice = get_prediction(self)
+
+def play():
+    game = RPS()
+    while True:
+        game.play_once()
+

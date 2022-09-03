@@ -42,13 +42,15 @@ class RPS:
             
             # here the option with the highest percentage is chosen
             self.user_choice = self.options[max_index]
-            print("You showed " +  self.user_choice)
+            
             
             # Press q to close the window
             print(prediction)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break 
         
+        print("You showed " +  self.user_choice)
+
         return self.user_choice
 
     def get_winner(self):

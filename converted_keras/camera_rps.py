@@ -28,7 +28,7 @@ class RPS:
     
     def get_prediction(self):
         
-        end_time = time.time() + 5
+        end_time = time.time() + 1
         while time.time() < end_time: 
             ret, frame = self.cap.read()
             resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)

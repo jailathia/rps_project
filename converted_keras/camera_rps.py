@@ -20,7 +20,7 @@ class RPS:
 
     def countdown_timer(self):
         input("Press Enter to continue...")
-        time_left = 5
+        time_left = 3
         while time_left > 0:
             print("picture will be taken in " + str(time_left) + " seconds")
             cv2.waitKey(1000)

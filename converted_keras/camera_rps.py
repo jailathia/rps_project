@@ -57,7 +57,11 @@ class RPS:
     def get_winner(self):
         computer_choice = self.get_computer_choice()
         user_choice = self.get_prediction()
-        
+        while user_choice == 'nothing':
+            print("Please try again")
+            self.countdown_timer()
+            user_choice = self.get_prediction()
+
         if computer_choice == user_choice:
             print("You both chose " + user_choice + ". This is a draw")
             return "draw"
@@ -79,6 +83,11 @@ def play():
     game.cap.release()
     # Destroy all the windows
     cv2.destroyAllWindows()
+
+    if game.user_wins == 3:
+        print("Congratulations! You have won 3 times and therefore won the match")
+    else:
+        print("The computer has won 3 times and therefore won the match")
 
 
 if __name__ == '__main__':

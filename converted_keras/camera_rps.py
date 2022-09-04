@@ -71,6 +71,8 @@ class RPS:
         else:
             print(f"You chose {user_choice} and the computer chose {computer_choice}. You win")
             self.user_wins += 1
+        
+        print(f"Current score: \n User: {str(self.user_wins)} \n Computer: {str(self.computer_wins)}")
 
 
 def play():

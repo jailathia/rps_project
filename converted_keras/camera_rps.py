@@ -19,6 +19,7 @@ class RPS:
         return self.computer_choice
 
     def countdown_timer(self):
+        input("Press Enter to continue...")
         time_left = 5
         while time_left > 0:
             print("picture will be taken in " + str(time_left) + " seconds")

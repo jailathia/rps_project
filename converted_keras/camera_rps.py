@@ -76,7 +76,7 @@ class RPS:
 def play():
     game = RPS()
     
-    while game.user_wins < 3 or game.computer_wins < 3:
+    while game.user_wins < 3 and game.computer_wins < 3:
         game.countdown_timer()
         game.get_winner()
     # After the loop release the cap object
